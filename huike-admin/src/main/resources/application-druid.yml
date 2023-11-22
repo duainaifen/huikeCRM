@@ -1,0 +1,13 @@
+# 数据源配置
+spring:
+    datasource:
+        druid:
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            #allowPublicKeyRetrieval=true&可能是有my.ini文件的原因
+            url: jdbc:mysql://127.0.0.1:3306/huike?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai
+            username: root
+            password: 1234
+#            password: p8fC2w5PLs6
+
+
+

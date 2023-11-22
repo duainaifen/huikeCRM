@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huike.clues.mapper.SysDictMapper">
+    <insert id="addDictData">
+        insert into sys_dict_data
+        value(null,#{dictSort},#{dictLabel},#{dictValue},
+            #{dictType},#{cssClass},#{listClass},
+            #{isDefault},#{status},#{createBy},#{createTime},
+            #{updateBy},#{updateTime},#{remark})
+    </insert>
+    <update id="updataDictData">
+        update sys_dict_data
+        <set>
+            <if test="dictSort != null">
+                dict_sort=#{dictSort},
+            </if>
+            <if test="dictLabel != null and dictLabel != ''">
+                dict_label=#{dictLabel},
+            </if>
+            <if test="dictValue != null and dictValue != ''">
+                dict_value=#{dictValue},
+            </if>
+            <if test="dictType != null and dictType != ''">
+                dict_type=#{dictType},
+            </if>
+            <if test="cssClass != null and cssClass != ''">
+                css_class=#{cssClass},
+            </if>
+            <if test="listClass != null and listClass != ''">
+                list_class=#{listClass},
+            </if>
+            <if test="isDefault != null and isDefault != ''">
+                is_default=#{isDefault},
+            </if>
+            <if test="status!= null and status != ''">
+                status=#{status},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by=#{createBy},
+            </if>
+            <if test="createTime != null ">
+                create_time=#{createTime},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by=#{updateBy},
+            </if>
+            <if test="updateTime != null ">
+                update_time=#{updateTime},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark=#{remark}
+            </if>
+        </set>
+        where dict_code = #{dictCode}
+    </update>
+    <delete id="deleteDictData">
+        delete from sys_dict_data
+        <where>
+            <if test="dictSort != null">
+                dict_sort=#{dictSort}
+            </if>
+            <if test="dictLabel != null and dictLabel != ''">
+                and dict_label=#{dictLabel}
+            </if>
+            <if test="dictValue != null and dictValue != ''">
+                and dict_value=#{dictValue}
+            </if>
+            <if test="dictType != null and dictType != ''">
+                and dict_type=#{dictType}
+            </if>
+            <if test="cssClass != null and cssClass != ''">
+                and css_class=#{cssClass}
+            </if>
+            <if test="listClass != null and listClass != ''">
+                and list_class=#{listClass}
+            </if>
+            <if test="isDefault != null and isDefault != ''">
+                and is_default=#{isDefault}
+            </if>
+            <if test="status!= null and status != ''">
+                and status=#{status}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by=#{createBy}
+            </if>
+            <if test="createTime != null ">
+                and create_time=#{createTime}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by=#{updateBy}
+            </if>
+            <if test="updateTime != null ">
+                and update_time=#{updateTime}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark=#{remark}
+            </if>
+        </where>
+    </delete>
+    <select id="dictDataList" resultType="com.huike.common.core.domain.entity.SysDictData">
+        select *
+        from sys_dict_data
+        <where>
+            <if test="dictSort != null">
+                dict_sort=#{dictSort}
+            </if>
+            <if test="dictLabel != null and dictLabel != ''">
+                and dict_label=#{dictLabel}
+            </if>
+            <if test="dictValue != null and dictValue != ''">
+                and dict_value=#{dictValue}
+            </if>
+            <if test="dictType != null and dictType != ''">
+                and dict_type=#{dictType}
+            </if>
+            <if test="cssClass != null and cssClass != ''">
+                and css_class=#{cssClass}
+            </if>
+            <if test="listClass != null and listClass != ''">
+                and list_class=#{listClass}
+            </if>
+            <if test="isDefault != null and isDefault != ''">
+                and is_default=#{isDefault}
+            </if>
+            <if test="status!= null and status != ''">
+                and status=#{status}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by=#{createBy}
+            </if>
+            <if test="createTime != null ">
+                and create_time=#{createTime}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by=#{updateBy}
+            </if>
+            <if test="updateTime != null ">
+                and update_time=#{updateTime}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark=#{remark}
+            </if>
+        </where>
+    </select>
+
+</mapper>
