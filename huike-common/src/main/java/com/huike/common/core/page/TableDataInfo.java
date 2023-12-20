@@ -25,6 +25,8 @@ public class TableDataInfo<T> implements Serializable
     /** 消息内容 */
     private String msg;
 
+    private T data;
+
     private Map<String,Object> params;
 
     /**
@@ -72,6 +74,16 @@ public class TableDataInfo<T> implements Serializable
     public void setRows(T rows)
     {
         this.rows = rows;
+    }
+
+    public T  getData()
+    {
+        return data;
+    }
+
+    public void setData(T data)
+    {
+        this.data = data;
     }
 
     public int getCode()

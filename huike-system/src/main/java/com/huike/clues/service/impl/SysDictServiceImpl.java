@@ -51,7 +51,7 @@ public class SysDictServiceImpl extends ServiceImpl<SysDictMapper, SysDictData> 
         sysDictData.setUpdateBy(SecurityUtils.getUsername());
         boolean result = sysDictMapper.addDictData(sysDictData);
         //sysDictMapper.insert(sysDictData);
-        //super.save(sysDictData);
+        //boolean result = super.save(sysDictData);
         return BooleanUtil.isTrue(result);
     }
 

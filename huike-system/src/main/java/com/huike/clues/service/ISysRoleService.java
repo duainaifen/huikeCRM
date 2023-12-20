@@ -2,6 +2,8 @@ package com.huike.clues.service;
 
 import java.util.List;
 import java.util.Set;
+
+import com.huike.common.core.domain.entity.SysMenu;
 import com.huike.common.core.domain.entity.SysRole;
 
 /**
@@ -41,4 +43,37 @@ public interface ISysRoleService
      * @return 权限列表
      */
     public Set<String> selectRolePermissionByUserId(Long userId);
+
+    /**
+     * 新增角色接口
+     * @param sysRole
+     */
+    void addRole(SysRole sysRole);
+
+    /**
+     * 修改保存角色接口
+     * @param sysRole
+     * @return
+     */
+    boolean updateRole(SysRole sysRole);
+
+    /**
+     * 根据角色编号获取详细信息接口
+     * @param roleId
+     * @return
+     */
+    SysRole getByRoleId(Long roleId);
+
+    /**
+     * 获取角色选择框列表接口
+     * @param userId
+     * @return
+     */
+    List<SysMenu> optionselect(Long userId);
+
+    /**
+     * 删除角色接口
+     * @param roleIds
+     */
+    void delete(List<Long> roleIds);
 }

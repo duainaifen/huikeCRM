@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huike.clues.mapper.ActivityMapper">
+    <insert id="addActivity">
+        insert into tb_activity
+        (id
+        <if test="name!=''and name!=null">,name</if>
+        <if test="channel!=''and channel!=null">,channel</if>
+        <if test="info!=''and info!=null">,info</if>
+        <if test="type!=''and type!=null">,type</if>
+        <if test="discount!=''and discount!=null">,discount</if>
+        <if test="vouchers!=null">,vouchers</if>
+        <if test="status!=''and status!=null">,status</if>
+        <if test="beginTime!=null">,begin_time</if>
+        <if test="endTime!=null">,end_time</if>
+        <if test="createTime!=null">,create_time</if>
+        <if test="code!=''and code!=null">,code</if>
+        )
+        value(null
+        <if test="name!=''and name!=null">,#{name}</if>
+        <if test="channel!=''and channel!=null">,#{channel}</if>
+        <if test="info!=''and info!=null">,#{info}</if>
+        <if test="type!=''and type!=null">,#{type}</if>
+        <if test="discount!=''and discount!=null">,#{discount}</if>
+        <if test="vouchers!=null">,#{vouchers}</if>
+        <if test="status!=''and status!=null">,#{status}</if>
+        <if test="beginTime!=null">,#{beginTime}</if>
+        <if test="endTime!=null">,#{endTime}</if>
+        <if test="createTime!=null">,#{createTime}</if>
+        <if test="code!=''and code!=null">,#{code}</if>
+        )
+    </insert>
+    <update id="updateActivity">
+        update tb_activity
+        <set>
+            <if test="name!=''and name!=null">name = #{name},</if>
+            <if test="channel!=''and channel!=null">channel =#{channel},</if>
+            <if test="info!=''and info!=null">info =#{info},</if>
+            <if test="type!=''and type!=null">type =#{type},</if>
+            <if test="discount!=''and discount!=null">discount =#{discount},</if>
+            <if test="vouchers!=null">vouchers =#{vouchers},</if>
+            <if test="status!=''and status!=null">status =#{status},</if>
+            <if test="beginTime!=null">begin_time =#{beginTime},</if>
+            <if test="endTime!=null">end_time =#{endTime},</if>
+            <if test="createTime!=null">create_time =#{createTime},</if>
+            <if test="code!=''and code!=null">code = #{code}</if>
+        </set>
+        where id=#{id}
+    </update>
+    <delete id="deleteActivity">
+        delete from tb_activity
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">#{id}</foreach>
+    </delete>
+
+    <select id="list" resultType="com.huike.clues.domain.TbActivity">
+        select * from tb_activity
+        <where>
+            <if test="id!=null">id=#{id}</if>
+            <if test="name!=''and name!=null">and name like CONCAT('%', #{name}, '%')</if>
+            <if test="channel!=''and channel!=null">and channel=#{channel}</if>
+            <if test="info!=''and info!=null">and info=#{info}</if>
+            <if test="type!=''and type!=null">and type=#{type}</if>
+            <if test="discount!=''and discount!=null">and discount=#{discount}</if>
+            <if test="vouchers!=null">and vouchers=#{vouchers}</if>
+            <if test="status!=''and status!=null">and status=#{status}</if>
+            <if test="beginTime!=null">and beginTime=#{beginTime}</if>
+            <if test="endTime!=null">and endTime=#{endTime}</if>
+            <if test="createTime!=null">and createTime=#{createTime}</if>
+            <if test="code!=''and code!=null">and code like CONCAT('%', #{code}, '%')</if>
+        </where>
+    </select>
+</mapper>

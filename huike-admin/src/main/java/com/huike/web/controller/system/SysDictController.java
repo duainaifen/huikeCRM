@@ -268,4 +268,40 @@ public class SysDictController extends BaseController {
         SysDictType result = sysDictService.dictTypeDetail(sysDictType);
         return AjaxResult.success(result);
     }
+
+    /**
+     * 活动活动明细左边部分的字典查询
+     * @param sysDictData
+     * @return
+     */
+    @GetMapping("/data/type/channel_type")
+    public AjaxResult channelType( SysDictData sysDictData) {
+        sysDictData.setDictType("channel_type");
+        List<SysDictData> result = sysDictService.getByDictType(sysDictData);
+        return AjaxResult.success(result);
+    }
+
+    /**
+     *活动审核状态的字典查询
+     * @param sysDictData
+     * @return
+     */
+    @GetMapping("/data/type/activity_status")
+    public AjaxResult activityStatus( SysDictData sysDictData) {
+        sysDictData.setDictType("activity_status");
+        List<SysDictData> result = sysDictService.getByDictType(sysDictData);
+        return AjaxResult.success(result);
+    }
+
+    /**
+     * 活动渠道来源的字典查询
+     * @param sysDictData
+     * @return
+     */
+    @GetMapping("/data/type/clues_item")
+    public AjaxResult cluesItem( SysDictData sysDictData) {
+        sysDictData.setDictType("clues_item");
+        List<SysDictData> result = sysDictService.getByDictType(sysDictData);
+        return AjaxResult.success(result);
+    }
 }
