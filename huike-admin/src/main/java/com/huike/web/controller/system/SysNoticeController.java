@@ -55,17 +55,31 @@ public class SysNoticeController extends BaseController {
     @GetMapping("/{noticeId}")
     public AjaxResult getById(SysNotice sysNotice) {
         Long noticeId = sysNotice.getNoticeId();
-        log.info("接收到的id为{}",noticeId);
+        log.info("接收到的id为{}", noticeId);
         SysNotice result = sysNoticeService.getById(noticeId);
         return AjaxResult.success(result);
     }
 
     /**
      * 未读变已读接口
+     *
      * @param sysNotice
      */
     @PutMapping("/{noticeId}")
-    public void changeStatus(SysNotice sysNotice){
+    public void changeStatus(SysNotice sysNotice) {
         sysNoticeService.changeStatus(sysNotice);
     }
+
+    /**
+     * 根据状态分页接口
+     * @return
+     */
+    @GetMapping("/list/{status}")
+    public TableDataInfo list(SysNotice sysNotice) {
+        log.info("接收到的前端数据是:{}",sysNotice);
+        startPage();
+        List<SysNotice> pagelist = sysNoticeService.pagelist(sysNotice);
+        return getDataTable(pagelist);
+    }
+
 }

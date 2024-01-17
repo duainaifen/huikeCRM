@@ -304,4 +304,76 @@ public class SysDictController extends BaseController {
         List<SysDictData> result = sysDictService.getByDictType(sysDictData);
         return AjaxResult.success(result);
     }
+
+    /**
+     * 线索模块性别的字典查询
+     * @param sysDictData
+     * @return
+     */
+    @GetMapping("/data/type/sys_user_sex")
+    public AjaxResult sysUserSex( SysDictData sysDictData) {
+        sysDictData.setDictType("sys_user_sex");
+        List<SysDictData> result = sysDictService.getByDictType(sysDictData);
+        return AjaxResult.success(result);
+    }
+
+    /**
+     * 线索模块线索级别的字典查询
+     * @param sysDictData
+     * @return
+     */
+    @GetMapping("/data/type/clues_level")
+    public AjaxResult cluesLevel( SysDictData sysDictData) {
+        sysDictData.setDictType("clues_level");
+        List<SysDictData> result = sysDictService.getByDictType(sysDictData);
+        return AjaxResult.success(result);
+    }
+
+    /**
+     * 线索模块学习课程课目的字典查询
+     * @param sysDictData
+     * @return
+     */
+    @GetMapping("/data/type/course_subject")
+    public AjaxResult cluesSubject( SysDictData sysDictData) {
+        sysDictData.setDictType("course_subject");
+        List<SysDictData> result = sysDictService.getByDictType(sysDictData);
+        return AjaxResult.success(result);
+    }
+
+    /**
+     * 线索模块线索状态的字典查询
+     * @param sysDictData
+     * @return
+     */
+    @GetMapping("/data/type/clue_status")
+    public AjaxResult cluesStatus( SysDictData sysDictData) {
+        sysDictData.setDictType("clue_status");
+        List<SysDictData> result = sysDictService.getByDictType(sysDictData);
+        return AjaxResult.success(result);
+    }
+
+    /**
+     * 线索模块报告原因的字典查询
+     * @param sysDictData
+     * @return
+     */
+    @GetMapping("/data/type/reasons_for_reporting")
+    public AjaxResult reasonsForReporting( SysDictData sysDictData) {
+        sysDictData.setDictType("reasons_for_reporting");
+        List<SysDictData> result = sysDictService.getByDictType(sysDictData);
+        return AjaxResult.success(result);
+    }
+
+    /**
+     * 线索模块报告原因的字典查询
+     * @param sysDictData
+     * @return
+     */
+    @GetMapping("/data/type/applicable_person")
+    public AjaxResult applicablePerson( SysDictData sysDictData) {
+        sysDictData.setDictType("applicable_person");
+        List<SysDictData> result = sysDictService.getByDictType(sysDictData);
+        return AjaxResult.success(result);
+    }
 }

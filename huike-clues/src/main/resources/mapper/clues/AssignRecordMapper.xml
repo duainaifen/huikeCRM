@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huike.clues.mapper.AssignRecordMapper">
+
+
+    <insert id="batchAssignment">
+
+        insert into tb_assign_record
+        (id,assign_id, user_id,user_name,dept_id,create_time,create_by,latest,type)
+        VALUES
+        <foreach collection="ids" item="id" separator=",">
+         (null,#{id}, #{tbAssignRecord.userId},#{tbAssignRecord.userName},
+                #{tbAssignRecord.deptId},#{tbAssignRecord.createTime},
+                #{tbAssignRecord.createBy},#{tbAssignRecord.latest},#{tbAssignRecord.type})
+        </foreach>
+    </insert>
+</mapper>

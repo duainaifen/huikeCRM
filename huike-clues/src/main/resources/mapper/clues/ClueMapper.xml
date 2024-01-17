@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huike.clues.mapper.ClueMapper">
+    <insert id="addClue">
+        insert into tb_clue
+        (id
+        <if test="name!=null and name!=''">, name</if>
+        <if test="phone!=null and phone!=''">, phone</if>
+        <if test="channel!=null and channel!=''">, channel</if>
+        <if test="activityId!=null ">, activity_id</if>
+        <if test="sex!=null and sex!=''">, sex</if>
+        <if test="age!=null ">, age</if>
+        <if test="weixin!=null and weixin!=''">, weixin</if>
+        <if test="qq!=null and qq!=''">, qq</if>
+        <if test="level!=null and level!=''">, level</if>
+        <if test="subject!=null and subject!=''">, subject</if>
+        <if test="status!=null and status!=''">, status</if>
+        <if test="createTime!=null">, create_time</if>
+        <if test="createBy!=null and createBy!=''">, create_by</if>
+        <if test="falseCount!=null ">, false_count</if>
+        <if test="nextTime!=null ">, next_time</if>
+        <if test="updateTime!=null ">, update_time</if>
+        <if test="transfer!=null and transfer!=''">, transfer</if>
+        <if test="endTime!=null ">, end_time</if>
+        )
+        values (null
+        <if test="name!=null and name!=''">,#{name}</if>
+        <if test="phone!=null and phone!=''">,#{phone}</if>
+        <if test="channel!=null and channel!=''">,#{channel}</if>
+        <if test="activityId!=null ">,#{activityId}</if>
+        <if test="sex!=null and sex!=''">,#{sex}</if>
+        <if test="age!=null ">,#{age}</if>
+        <if test="weixin!=null and weixin!=''">,#{weixin}</if>
+        <if test="qq!=null and qq!=''">,#{qq}</if>
+        <if test="level!=null and level!=''">,#{level}</if>
+        <if test="subject!=null and subject!=''">,#{subject}</if>
+        <if test="status!=null and status!=''">,#{status}</if>
+        <if test="createTime!=null">,#{createTime}</if>
+        <if test="createBy!=null and createBy!=''">,#{createBy}</if>
+        <if test="falseCount!=null ">,#{falseCount}</if>
+        <if test="nextTime!=null ">,#{nextTime}</if>
+        <if test="updateTime!=null ">,#{updateTime}</if>
+        <if test="transfer!=null and transfer!=''">,#{transfer}</if>
+        <if test="endTime!=null ">,#{endTime}</if>
+        )
+    </insert>
+    <update id="updateByTbClueTrackRecord">
+        update tb_clue
+        <set>
+            <if test="age!=0">age=#{age}</if>
+            <if test="level!=0 and level!=''">and level=#{level}</if>
+            <if test="sex!=0 and qq!=''">and sex=#{sex}</if>
+            <if test="subject!=0 and subject!=''">and subject=#{subject}</if>
+        </set>
+        where id=#{clueId}
+    </update>
+
+    <!--    <insert id="addClueBatch">-->
+<!--        insert into tb_clue-->
+<!--        (id-->
+<!--        <if test="name!=null and name!=''">, name</if>-->
+<!--        <if test="phone!=null and phone!=''">, phone</if>-->
+<!--        <if test="channel!=null and channel!=''">, channel</if>-->
+<!--        <if test="activityId!=null ">, activity_id</if>-->
+<!--        <if test="sex!=null and sex!=''">, sex</if>-->
+<!--        <if test="age!=null ">, age</if>-->
+<!--        <if test="weixin!=null and weixin!=''">, weixin</if>-->
+<!--        <if test="qq!=null and qq!=''">, qq</if>-->
+<!--        <if test="level!=null and level!=''">, level</if>-->
+<!--        <if test="subject!=null and subject!=''">, subject</if>-->
+<!--        <if test="status!=null and status!=''">, status</if>-->
+<!--        <if test="createTime!=null">, create_time</if>-->
+<!--        <if test="createBy!=null and createBy!=''">, create_by</if>-->
+<!--        <if test="falseCount!=null ">, false_count</if>-->
+<!--        <if test="nextTime!=null ">, next_time</if>-->
+<!--        <if test="updateTime!=null ">, update_time</if>-->
+<!--        <if test="transfer!=null and transfer!=''">, transfer</if>-->
+<!--        <if test="endTime!=null ">, end_time</if>-->
+<!--        )-->
+<!--        VALUES-->
+<!--            <foreach collection="tbClueList" item="tbClue"  separator=",">-->
+<!--                (null-->
+<!--                <if test="name!=null and name!=''">,#{tbClue.name}</if>-->
+<!--                <if test="phone!=null and phone!=''">,#{tbClue.phone}</if>-->
+<!--                <if test="channel!=null and channel!=''">,#{tbClue.channel}</if>-->
+<!--                <if test="activityId!=null ">,#{tbClue.activityId}</if>-->
+<!--                <if test="sex!=null and sex!=''">,#{tbClue,sex}</if>-->
+<!--                <if test="age!=null ">,#{tbClue.age}</if>-->
+<!--                <if test="weixin!=null and weixin!=''">,#{tbClue.weixin}</if>-->
+<!--                <if test="qq!=null and qq!=''">,#{tbClue.qq}</if>-->
+<!--                <if test="level!=null and level!=''">,#{tbClue.level}</if>-->
+<!--                <if test="subject!=null and subject!=''">,#{tbClue.subject}</if>-->
+<!--                <if test="status!=null and status!=''">,#{tbClue.status}</if>-->
+<!--                <if test="createTime!=null">,#{tbClue.createTime}</if>-->
+<!--                <if test="createBy!=null and createBy!=''">,#{tbClue.createBy}</if>-->
+<!--                <if test="falseCount!=null ">,#{tbClue.falseCount}</if>-->
+<!--                <if test="nextTime!=null ">,#{tbClue.nextTime}</if>-->
+<!--                <if test="updateTime!=null ">,#{tbClue.updateTime}</if>-->
+<!--                <if test="transfer!=null and transfer!=''">,#{tbClue.transfer}</if>-->
+<!--                <if test="endTime!=null ">,#{tbClue.endTime}</if>-->
+<!--                )-->
+<!--            </foreach>-->
+<!--    </insert>-->
+
+
+    <select id="list" resultType="com.huike.clues.domain.TbClue">
+        select * from tb_clue
+        <where>
+            <if test="id!=null">id=#{id}</if>
+            <if test="name!=null and name!=''">and name=#{name}</if>
+            <if test="phone!=null and phone!=''">and phone=#{phone}</if>
+            <if test="channel!=null and channel!=''">and channel=#{channel}</if>
+            <if test="activityId!=null ">and activity_id=#{activityId}</if>
+            <if test="sex!=null and sex!=''">and sex=#{sex}</if>
+            <if test="age!=null ">and age=#{age}</if>
+            <if test="weixin!=null and weixin!=''">and weixin=#{weixin}</if>
+            <if test="qq!=null and qq!=''">and qq=#{qq}</if>
+            <if test="level!=null and level!=''">and level=#{level}</if>
+            <if test="subject!=null and subject!=''">and subject=#{subject}</if>
+            <if test="status!=null and status!=''">and status=#{status}</if>
+            <if test="createTime!=null">and create_time=#{createTime}</if>
+            <if test="createBy!=null and createBy!=''">and create_by=#{createBy}</if>
+            <if test="falseCount!=null ">and false_count=#{falseCount}</if>
+            <if test="nextTime!=null ">and next_time=#{nextTime}</if>
+            <if test="updateTime!=null ">and update_time=#{updateTime}</if>
+            <if test="transfer!=null and transfer!=''">and transfer=#{transfer}</if>
+            <if test="endTime!=null ">and end_time=#{endTime}</if>
+        </where>
+    </select>
+</mapper>

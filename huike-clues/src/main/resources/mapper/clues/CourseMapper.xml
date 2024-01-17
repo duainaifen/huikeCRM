@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huike.clues.mapper.CourseMapper">
+    <insert id="addCourse">
+        insert into tb_course(id
+        <if test="code!=null and code!=''">,code</if>
+        <if test="name!=null and name!=''">,name</if>
+        <if test="subject!=null and subject!=''">,subject</if>
+        <if test="price!=null ">,price</if>
+        <if test="applicablePerson!=null and applicablePerson!=''">,applicable_person</if>
+        <if test="info!=null and info!=''">,info</if>
+        <if test="createTime!=null ">,create_time</if>
+        <!--        <if test="isDelete!=null and isDelete!=''">,is_delete</if>-->
+        )
+        values (null
+        <if test="code!=null and code!=''">,#{code}</if>
+        <if test="name!=null and name!=''">,#{name}</if>
+        <if test="subject!=null and subject!=''">,#{subject}</if>
+        <if test="price!=null ">,#{price}</if>
+        <if test="applicablePerson!=null and applicablePerson!=''">,#{applicablePerson}</if>
+        <if test="info!=null and info!=''">,#{info}</if>
+        <if test="createTime!=null ">,#{createTime}</if>
+        <!--        <if test="isDelete!=null and isDelete!=''">,#{is_delete}</if>-->
+        )
+    </insert>
+
+    <update id="updateCourse">
+        update tb_course
+        <set>
+            <if test="code!=null and code!=''">code=#{code}</if>
+            <if test="name!=null and name!=''">, name=#{name}</if>
+            <if test="subject!=null and subject!=''">, subject=#{subject}</if>
+            <if test="price!=null ">and price=#{price}</if>
+            <if test="applicablePerson!=null and applicablePerson!=''">, applicable_person=#{applicablePerson}</if>
+            <if test="info!=null and info!=''">, info=#{info}</if>
+            <if test="createTime!=null ">, create_time=#{createTime}</if>
+        </set>
+        WHERE id=#{id}
+    </update>
+    <update id="courseDelete">
+        update tb_course set is_delete =1 where id in
+        <foreach collection="idsList" item="id" separator="," open="(" close=")">
+                 #{id}
+        </foreach>
+    </update>
+
+    <select id="courseList" resultType="com.huike.clues.domain.TbCourse">
+        select * from tb_course
+        <where>
+            is_delete=0
+            <if test="id!=null">and id like concat(%,#{id},%)</if>
+            <if test="code!=null and code!=''">and code=#{code}</if>
+            <if test="name!=null and name!=''">and name=#{name}</if>
+            <if test="subject!=null and subject!=''">and subject=#{subject}</if>
+            <if test="price!=null ">and price=#{price}</if>
+            <if test="applicablePerson!=null and applicablePerson!=''">and applicable_person=#{applicablePerson}</if>
+            <if test="info!=null and info!=''">and info=#{info}</if>
+            <if test="createTime!=null">and create_time=#{createTime}</if>
+        </where>
+    </select>
+</mapper>

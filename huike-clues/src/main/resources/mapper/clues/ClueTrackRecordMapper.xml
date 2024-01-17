@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huike.clues.mapper.ClueTrackRecordMapper">
+    <insert id="insert">
+        insert into tb_clue_track_record (id,
+        <if test="clueId!=null">clue_id,</if>
+        <if test="createBy!=null and createBy!=''">create_by,</if>
+        <if test="subject!=null and subject!=''">subject,</if>
+        <if test="record!=null and record!=''">record,</if>
+        <if test="level!=null and level!=''">level,</if>
+        <if test="type!=null and type!=''">type,</if>
+        <if test="falseReason!=null and falseReason!=''">false_reason,</if>
+        <if test="nextTime!=null ">next_time,</if>
+        create_time
+        )
+        VALUES (null,
+        <if test="clueId!=null">#{clueId},</if>
+        <if test="createBy!=null and createBy!=''">#{createBy},</if>
+        <if test="subject!=null and subject!=''">#{subject},</if>
+        <if test="record!=null and record!=''">#{record},</if>
+        <if test="level!=null and level!=''">#{level},</if>
+        <if test="type!=null and type!=''">#{type},</if>
+        <if test="falseReason!=null and falseReason!=''">#{falseReason},</if>
+        <if test="nextTime!=null ">#{nextTime},</if>
+        #{create_time}
+        )
+    </insert>
+
+    <insert id="addRecord">
+        insert into tb_clue_track_record (id,
+        <if test="clueId!=null">clue_id,</if>
+        <if test="createBy!=null and createBy!=''">create_by,</if>
+        <if test="subject!=null and subject!=''">subject,</if>
+        <if test="record!=null and record!=''">record,</if>
+        <if test="level!=null and level!=''">level,</if>
+        <if test="type!=null and type!=''">type,</if>
+        <if test="falseReason!=null and falseReason!=''">false_reason,</if>
+        <if test="nextTime!=null ">next_time,</if>
+        create_time
+        )
+        VALUES (null,
+        <if test="clueId!=null">#{clueId},</if>
+        <if test="createBy!=null and createBy!=''">#{createBy},</if>
+        <if test="subject!=null and subject!=''">#{subject},</if>
+        <if test="record!=null and record!=''">#{record},</if>
+        <if test="level!=null and level!=''">#{level},</if>
+        <if test="type!=null and type!=''">#{type},</if>
+        <if test="falseReason!=null and falseReason!=''">#{falseReason},</if>
+        <if test="nextTime!=null ">#{nextTime},</if>
+        #{create_time}
+        )
+    </insert>
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.huike.business.mapper.BusinessMapper">
+    <insert id="insert">
+        insert into tb_business (id,
+        <if test="name!=null and name!=''">name,</if>
+        <if test="phone!=null and phone!=''">phone,</if>
+        <if test="channel!=null and channel!=''">channel,</if>
+        <if test="activityId!=null ">activity_id,</if>
+        <if test="provinces!=null and provinces!=''">provinces,</if>
+        <if test="city!=null and city!=''">city,</if>
+        <if test="sex!=null and sex!=''">sex,</if>
+        <if test="age!=null ">age,</if>
+        <if test="weixin!=null and weixin!=''">weixin,</if>
+        <if test="qq!=null and qq!=''">qq,</if>
+        <if test="level!=null and level!=''">level,</if>
+        <if test="subject!=null and subject!=''">subject,</if>
+        <if test="courseId!=null ">course_id,</if>
+        <if test="createBy!=null and createBy!=''">create_by,</if>
+
+        <if test="occupation!=null and occupation!=''">occupation,</if>
+        <if test="education!=null and education!=''">education,</if>
+        <if test="job!=null and job!=''">job,</if>
+        <if test="salary!=null and salary!=''">salary,</if>
+        <if test="major!=null and major!=''">major,</if>
+        <if test="expectedSalary!=null and expectedSalary!=''">expected_salary,</if>
+        <if test="reasons!=null and reasons!=''">reasons,</if>
+        <if test="plan!=null and plan!=''">plan,</if>
+        <if test="planTime!=null ">plan_time,</if>
+        <if test="otherIntention!=null and otherIntention!=''">other_intention,</if>
+        <if test="status!=null and status!=''">status,</if>
+        <if test="nextTime!=null ">next_time,</if>
+        <if test="lastUpdateTime!=null ">last_update_time,</if>
+        <if test="clueId!=null ">clue_id,</if>
+        <if test="transfer!=null and transfer!=''">transfer,</if>
+        <if test="remark!=null and remark!=''">transfer,</if>
+        <if test="endTime!=null ">end_time,</if>
+        create_time
+        )
+values (null,
+        <if test="name!=null and name!=''">#{name},</if>
+        <if test="phone!=null and phone!=''">#{phone},</if>
+        <if test="channel!=null and channel!=''">#{channel},</if>
+        <if test="activityId!=null ">#{activityId},</if>
+        <if test="provinces!=null and provinces!=''">#{provinces},</if>
+        <if test="city!=null and city!=''">#{city},</if>
+        <if test="sex!=null and sex!=''">#{sex},</if>
+        <if test="age!=null ">#{age},</if>
+        <if test="weixin!=null and weixin!=''">#{weixin},</if>
+        <if test="qq!=null and qq!=''">#{qq},</if>
+        <if test="level!=null and level!=''">#{level},</if>
+        <if test="subject!=null and subject!=''">#{subject},</if>
+        <if test="courseId!=null ">#{courseId},</if>
+        <if test="createBy!=null and createBy!=''">#{createBy},</if>
+
+        <if test="occupation!=null and occupation!=''">#{occupation},</if>
+        <if test="education!=null and education!=''">#{education},</if>
+        <if test="job!=null and job!=''">#{job},</if>
+        <if test="salary!=null and salary!=''">#{salary},</if>
+        <if test="major!=null and major!=''">#{major},</if>
+        <if test="expectedSalary!=null and expectedSalary!=''">#{expectedSalary},</if>
+        <if test="reasons!=null and reasons!=''">#{reasons},</if>
+        <if test="plan!=null and plan!=''">#{plan},</if>
+        <if test="planTime!=null ">#{planTime},</if>
+        <if test="otherIntention!=null and otherIntention!=''">#{otherIntention},</if>
+        <if test="status!=null and status!=''">#{status},</if>
+        <if test="nextTime!=null ">#{nextTime},</if>
+        <if test="lastUpdateTime!=null ">#{lastUpdateTime},</if>
+        <if test="clueId!=null ">#{clueId},</if>
+        <if test="transfer!=null and transfer!=''">#{transfer},</if>
+        <if test="remark!=null and remark!=''">#{transfer},</if>
+        <if test="endTime!=null ">#{endTime},</if>
+        #{createTime}
+        )
+    </insert>
+</mapper>

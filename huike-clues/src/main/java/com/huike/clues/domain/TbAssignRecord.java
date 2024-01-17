@@ -1,5 +1,6 @@
 package com.huike.clues.domain;
 
+import lombok.Builder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.huike.common.annotation.Excel;
@@ -39,15 +40,15 @@ public class TbAssignRecord extends BaseEntity
     @Excel(name = "类型0 线索 1 商机")
     private String type="0";
 
-   // private String status;
+    private String status;
 
-//    public String getStatus() {
-//        return status;
-//    }
-//
-//    public void setStatus(String status) {
-//        this.status = status;
-//    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public void setId(Long id)
     {

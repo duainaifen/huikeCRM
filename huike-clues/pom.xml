@@ -30,12 +30,16 @@
         </dependency>
 
 
-
         <dependency>
             <groupId>com.huike</groupId>
             <artifactId>huike-system</artifactId>
         </dependency>
 
+        <!--自己加上依赖business模块的依赖(可能有问题注意测试)-->
+<!--        <dependency>-->
+<!--            <groupId>com.huike</groupId>-->
+<!--            <artifactId>huike-business</artifactId>-->
+<!--        </dependency>-->
 
 
     </dependencies>

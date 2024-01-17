@@ -9,7 +9,9 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.huike.common.annotation.Excel;
 import com.huike.common.core.domain.BaseEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 /**
  * 线索对象 tb_business
  * @date 2021-04-28
@@ -110,6 +112,8 @@ public class TbBusiness extends TbClue
     //结束时间
     @ApiModelProperty("结束时间")
     private String endCreateTime;
+
+    private Date lastUpdateTime;
 
     public String getBeginCreateTime() {
 		return beginCreateTime;
@@ -262,6 +266,13 @@ public class TbBusiness extends TbClue
         return otherIntention;
     }
 
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
 
     @Override
     public String toString() {
